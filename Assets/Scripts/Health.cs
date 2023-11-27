@@ -19,14 +19,21 @@ public class Health : MonoBehaviour
     [Header("Camera Shake Config")]
     [SerializeField] private bool applyCameraShake;
 
+    private int _currentHealth;
+
+    public int CurrentHealth { get => _currentHealth; }
     public int HealthAmount { get => healthAmount; }
 
+    private LevelManager _levelManager;
     private AudioPlayer _audioPlayer;
     private CameraShaker _cameraShaker;
     private ScoreKeeper _scoreKeeper;
 
     private void Awake()
     {
+        _currentHealth = healthAmount;
+
+        _levelManager = FindObjectOfType<LevelManager>();
         _scoreKeeper = FindObjectOfType<ScoreKeeper>();
         _audioPlayer = FindObjectOfType<AudioPlayer>();
         _cameraShaker = FindObjectOfType<CameraShaker>();
@@ -46,8 +53,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        healthAmount -= damageAmount;
-        if (healthAmount <= 0)
+        _currentHealth -= damageAmount;
+        if (_currentHealth <= 0)
         {
             Die();
         }
@@ -58,8 +65,12 @@ public class Health : MonoBehaviour
         if (!isPlayer)
         {
             _scoreKeeper.AddScore(deathScore);
-            Debug.Log("score: " + _scoreKeeper.Score);
         }
+        else
+        {
+            _levelManager.LoadGameOver();
+        }
+
         Destroy(gameObject);
     }
 

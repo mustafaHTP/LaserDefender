@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: a9cda550b983cb3469ce14bb31eb22ca
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 410ce77781dfd904eb8f410130c6add2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1419c70565d9c994fa630a1534bb540a, type: 2}

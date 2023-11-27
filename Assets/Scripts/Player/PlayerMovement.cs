@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+
+    [Header("Player's Boundaries")]
     [SerializeField] private float horizontalPadding;
     [SerializeField] private float verticalPadding;
 
