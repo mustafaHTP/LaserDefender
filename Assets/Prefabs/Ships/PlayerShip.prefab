@@ -96,10 +96,12 @@ GameObject:
   - component: {fileID: 3310077389413859062}
   - component: {fileID: -3817297191901110779}
   - component: {fileID: 5252496518369477228}
+  - component: {fileID: 6529708546406552673}
   - component: {fileID: 4582394397152037728}
   - component: {fileID: 6226694206125872990}
   - component: {fileID: -8051367596032798514}
   - component: {fileID: 3160430317636461279}
+  - component: {fileID: 2370884314002064463}
   m_Layer: 6
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -136,8 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  horizontalPadding: 1
-  verticalPadding: 1
+  leftPadding: 0.5
+  rightPadding: 0.5
+  topPadding: 9
+  bottomPadding: 2.3
 --- !u!114 &-3817297191901110779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +171,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddce2ed2da9471b468aeb2c877e636aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6529708546406552673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125902851013446173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646c11dfcb0d54b41b7523244172420b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectHealtAmount: 10
+  fastShootFiringRate: 0.2
 --- !u!114 &4582394397152037728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,9 +201,10 @@ MonoBehaviour:
   projectile: {fileID: 4857313994190034010, guid: 4ee7ffcd6c775b14c84cce15561cdc80, type: 3}
   projectileSpeed: 10
   projectileLifeTime: 5
-  firingRate: 0.1
-  firingRateTimeVarience: 0.05
+  firingRate: 0.4
+  firingRateTimeVarience: 0
   minFiringRate: 0
+  doubleLaserOffset: 1
   IsFiring: 0
 --- !u!50 &6226694206125872990
 Rigidbody2D:
@@ -273,9 +292,73 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f503998-ad87-4a14-8cff-4faf642d89e8
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b149a7cf-b543-47d1-8400-81afb2c13e62
+    m_ActionName: Player/Fire[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 69615b86-3ba5-401d-a133-e30bf01c833d
+    m_ActionName: Player/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5aaf7be-c03c-44aa-a007-f2ade5c816e0
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: caa273a7-241a-4141-8990-4e3377ea561e
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77e2c139-bf76-431b-8f0b-6d4d81a1e227
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dda6641f-198a-42d4-87ef-598aa5a3087a
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8084e7e5-1af0-4056-8641-e7d379e694e9
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e1c1aa8-b18e-4c13-93e9-ad2ca305594d
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7226b45b-0029-4bc9-ab20-57010d2ee1bb
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a4c405f-3ceb-4b45-ada1-aab1a233dbdb
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c6f2e06-445c-4932-bf3c-3cb8d9c7546e
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0373df49-697f-4eb7-9367-3491b3100845
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2370884314002064463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125902851013446173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590661911070ea746bfc312c0b138910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
