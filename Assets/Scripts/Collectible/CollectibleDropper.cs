@@ -57,5 +57,9 @@ public class CollectibleDropper : MonoBehaviour
             rigidbody.velocity = new Vector2(0f, -lootSpeed);
         }
 
+        if(cloneLoot.TryGetComponent(out Collectible collectible))
+        {
+            Destroy(cloneLoot, collectible.destroyTime);
+        }
     }
 }

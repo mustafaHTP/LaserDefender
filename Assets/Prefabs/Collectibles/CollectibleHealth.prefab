@@ -195,3 +195,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectibleType: 0
   dropChange: 70
+  effectTime: 10
+  destroyTime: 20

@@ -196,3 +196,4 @@ MonoBehaviour:
   collectibleType: 1
   dropChange: 50
   effectTime: 10
+  destroyTime: 20

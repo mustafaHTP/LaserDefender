@@ -9,4 +9,5 @@ public class Collectible : MonoBehaviour
     [Tooltip("Range 0 - 100")]
     public int dropChange;
     public float effectTime;
+    public float destroyTime;
 }
